@@ -58,6 +58,7 @@ public class User implements UserDetails {
     protected Date lastLogin;
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return new ArrayList<>();
     }
