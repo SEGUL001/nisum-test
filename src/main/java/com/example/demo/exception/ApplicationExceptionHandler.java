@@ -24,4 +24,9 @@ public class ApplicationExceptionHandler {
     public ResponseEntity<?> handleException(Exception e) {
         return ResponseEntity.internalServerError().body(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getLocalizedMessage()));
     }
+
+    @ExceptionHandler(AppException.class)
+    public ResponseEntity<?> handleException(AppException e) {
+        return ResponseEntity.internalServerError().body(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage()));
+    }
 }

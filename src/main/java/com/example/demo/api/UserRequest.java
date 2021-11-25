@@ -1,5 +1,6 @@
 package com.example.demo.api;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Data
+@Builder
 public class UserRequest {
     @NotEmpty
     private String name;

@@ -52,7 +52,12 @@ public class UserService {
                 .countryCode(phone.getCountryCode())
                 .number(phone.getNumber())
                 .build()));
-        return userRepository.save(user);
+        try{
+            User savedUser = userRepository.save(user);
+            logger.info("User saved");
+            return savedUser;
+        } catch (Exception e){
+            throw new AppException("Error saving user: " + e.getLocalizedMessage(), logger);
+        }
     }
-
 }
