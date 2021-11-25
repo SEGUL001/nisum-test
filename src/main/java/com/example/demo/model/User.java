@@ -13,6 +13,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -35,9 +36,11 @@ public class User implements UserDetails {
     private String id;
     @NotEmpty
     private String name;
+
     @NotEmpty
-    @Email
     private String email;
+
+    @NotEmpty
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
